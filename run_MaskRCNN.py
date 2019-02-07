@@ -105,7 +105,6 @@ visualize.display_instances(image, r['rois'], r['masks'], r['class_ids'],
 
 print('Hello Motor!')                            
 
-
 # Add Color Splash effect: set uninterested area in gray and interested in original color! 
 def color_splash(image, mask, class_id, selected_class_id):
     """Apply color splash effect.
@@ -130,6 +129,10 @@ def color_splash(image, mask, class_id, selected_class_id):
         r_selection = np.array(np.where(class_id==selected_class_id))
         mask = mask[:,:,np.array(r_selection)].reshape(image.shape[0],image.shape[1],r_selection.size)
         mask = (np.sum(mask, -1, keepdims=True) >= 1)
+
+
+    # Combine mask matrices:
+    mask_id = mask*class_id
 
     # Copy color pixels from the original color image where mask is set
     # Copy image to gray according to mask. -libn
