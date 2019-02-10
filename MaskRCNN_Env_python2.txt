@@ -1,0 +1,27 @@
+conda create -n python2ML pip python=2.7
+
+1) imgaug:
+
+pip install six numpy scipy Pillow matplotlib scikit-image opencv-python imageio Shapely
+pip install imgaug
+
+
+2) tensorflow:
+pip install tensorflow
+
+3) keras:
+conda install -c conda-forge keras 
+
+4) ipython:
+conda install -c anaconda ipython 
+
+5) pycocotools:
+conda install -c conda-forge pycocotools 
+
+
+
++1) Export environment :
+conda-env  export -n python2ML > python2ML.yml
+
++2) Inport environment:
+conda-env create -n python2ML -f=python2ML.yml 
